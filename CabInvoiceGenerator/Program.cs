@@ -1,12 +1,28 @@
-﻿using System;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator Name="Akshay Poriya"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace CabInvoiceGenerator
 {
-    class Program
+    using System;
+
+    /// <summary>
+    /// program class which calls main method
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Welcome to Cab Invoice Program");
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+            double fare = invoiceGenerator.CalculateFare(2.0, 5);
+            Console.WriteLine($"Fare: {fare}");
         }
     }
 }
