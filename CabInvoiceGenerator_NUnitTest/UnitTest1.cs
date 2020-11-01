@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Ride.cs" company="Bridgelabz">
+// <copyright file="UnitTest1.cs" company="Bridgelabz">
 //   Copyright © 2018 Company
 // </copyright>
 // <creator Name="Akshay Poriya"/>
@@ -12,6 +12,7 @@ namespace CabInvoiceGenerator_NUnitTest
     public class Tests
     {
         /// <summary>
+        /// UC1
         /// Givens the distance and time should return total fare.
         /// </summary>
         [Test]
@@ -25,6 +26,25 @@ namespace CabInvoiceGenerator_NUnitTest
             double fare = invoiceGenerator.CalculateFare(distance, time);
             double expected = 25;
             Assert.AreEqual(expected, fare);
+        }
+
+        /// <summary>
+        /// UC2
+        /// Givens the multiple rides should return invoice summary.
+        /// </summary>
+        [Test]
+        public void GivenMultipleRidesShouldReturnInvoiceSummary()
+        {
+            //Creating instance of invoice generator 
+            InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+            Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
+
+            //Generating Summary for rides
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
+            InvoiceSummary expectedSummary = new InvoiceSummary(2, 30.0);
+
+            //Asserting values
+            Assert.AreEqual(expectedSummary, summary);
         }
     }
 }
